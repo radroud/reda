@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<f:view>
+    <h:form>
+        <h:panelGrid columns="3">
+
+            <h:outputLabel value="First Name"/>
+            <h:inputText id="firstName" required="true" label="First Name" value="#{testBean.firstName}">
+                <f:validateLength for="firstName" minimum="3" maximum="15"/>
+            </h:inputText>
+            <h:message for="firstName" errorClass="error"/>
+
+            <h:outputLabel value="Last Name"/>
+            <h:inputText id="lastName" required="true" label="Last Name" value="#{testBean.lastName}">
+                <f:validateLength for="lastName" minimum="3" maximum="15"/>
+            </h:inputText>
+            <h:message for="lastName"/>
+
+            <h:outputLabel value="Email"/>
+            <h:inputText id="email" type="email" required="true" label="E-Mail" value="#{testBean.email}">
+                <!--<f:validateRegex pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}"/>-->
+                <f:validateLength for="email" minimum="3" maximum="50"/>
+            </h:inputText>
+            <h:message for="email"/>
+
+            <h:outputLabel value="Password"/>
+            <h:inputSecret id="password" required="true" label="Password" value="#{testBean.password}">
+                <f:validateLength for="password" minimum="6" maximum="15"/>
+                <f:validateRequired for="password"/>
+            </h:inputSecret>
+            <h:message for="password"/>
+
+            <h:commandButton value="Submit" action="test"/>
+        </h:panelGrid>
+    </h:form>
+</f:view>
+</html>
